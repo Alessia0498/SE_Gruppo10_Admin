@@ -1,1 +1,1 @@
-echo "# SE_Gruppo10_Admin"
+# SE_Gruppo10_Admin
