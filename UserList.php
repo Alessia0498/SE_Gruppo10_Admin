@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<?php require_once 'libreria.php'; generateHeader(); ?>
+	<?php require_once 'Library.php'; generateHeader(); ?>
 
 
 <div class="content">
