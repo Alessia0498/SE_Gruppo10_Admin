@@ -4,7 +4,7 @@
 	<title>User List</title>
 	<meta name="author" content="gruppo 10"/>
 	<link rel="stylesheet" type="text/css" href="Index.css"/>
-	<meta name="content" content="visualizzazione lista utenti sistema"/>
+	<meta name="content" System User List View"/>
 	<meta charset="utf-8"/>
 
 </head>
