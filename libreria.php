@@ -1,5 +1,5 @@
 <?php
-function generaHeader() {
+function generateHeader() {
   echo "<div id=\"header\" class=\"topnav\">
   <a class=\"lineeMenu\" onclick=\"openNav()\" href=\"#home\">☰ Lista Utenti</a>
   <img class=\"image\" src=\"login.png\">
@@ -35,7 +35,7 @@ function generaHeader() {
 } 
 
 
-function generaFooter(){
+function generateFooter(){
   echo "
   <div class=\"footer\">
     <div data-role=\"footer\" class=\"ui-bar\">
