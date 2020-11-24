@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<?php require_once 'libreria.php'; generaHeader(); ?>
+	<?php require_once 'libreria.php'; generateHeader(); ?>
 
 
 <div class="content">
@@ -49,7 +49,7 @@ echo "</table>";
 </div>
 </div>
 
-  <?php generaFooter()?>
+  <?php generateFooter()?>
 
 </body>
 </html>
