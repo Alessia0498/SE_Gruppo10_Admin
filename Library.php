@@ -43,7 +43,18 @@ function generateFooter(){
 	
 
 </div>";
+}
+
+function back(){
+	echo "
+	<div class=\"footer\">
+	  <div data-role=\"footer\" class=\"ui-bar\">
+	  <a href=\"UserList.php\" data-role=\"button\">Indietro</a>
+	  
+  
+  </div>";
 
 }
+
 
 ?>
