@@ -49,7 +49,7 @@
       </tr>";
 
 
-      $users = $_SESSION['usersession'];
+      $_SESSION['usersession'] = $users;
 
       if (isset($_GET['username']) && $_GET['role']) {
 
