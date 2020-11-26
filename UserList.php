@@ -16,7 +16,9 @@
   <?php
 
   require_once 'Library.php';
-  generateHeader(); ?>
+  generateHeader();
+  session_start();
+  ?>
 
   <div class="content">
 
@@ -47,17 +49,26 @@
       </tr>";
 
 
+      $users = $_SESSION['usersession'];
 
-      foreach ($users as $x => $user) {
+      if (isset($_GET['username']) && $_GET['role']) {
+
+        $new = array('username' => $_GET['username'], 'role' => $_GET['role']);
+
+        array_push($_SESSION['usersession'], $new);
+      }
+
+
+
+      foreach ($_SESSION['usersession'] as $x => $user) {
 
 
         echo "<tr>
       <td width='35%' height='100%' align='center'><a href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user["username"] . "</a></td>
-      <td width='35%' height='100%' align='center'>" . $user["role"] . "</td>  
+      <td width='35%' height='100%' align='center'>" . $user['role'] . "</td>  
     </tr>";
       }
       echo "</table>";
-
 
       ?>
     </div>

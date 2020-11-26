@@ -56,7 +56,7 @@
       $message = "Succefully entered user!";
     } else {
 
-      die('<h3 style="text-align: center; color: red">Passwords don\'t match. Try again!</h3>');
+      die('<h3 style="text-align: center; color: red">Passwords don\'t match.<a href="InsertUser.php">Try again!</a></h3>');
     }
 
 
@@ -88,29 +88,25 @@
       <th>Role</th>
       </tr>";
     echo "<tr>
-      <td width='35%' height='100%' align='center'><a href='ViewSystemUsers.php?username=" . $_SESSION['username'] . "&role=" . $_SESSION['role'] . "'>" . $_SESSION["username"] . "</a></td>
+      <td width='35%' height='100%' align='center'>" . $_SESSION["username"] . "</td>
       <td width='35%' height='100%' align='center'>" . $_SESSION["role"] . "</td>  
     </tr>";
+
+    echo "</table>";
+
+
+
+    echo "<a href='UserList.php?username=" . $_SESSION['username'] . "&role=" . $_SESSION['role'] . "'>Indietro</a>";
   }
-  echo "</table>";
-
-  //foreach ($_SESSION['user'] as $key => $val) {
-
-
-  //print_r($_SESSION['username']);
-  //echo "<br>";
-  //print_r($_SESSION['role']);
-  //echo "<br>";
-  // }
-  //echo "</table>";
-  //}
-
-
+  ?>
+  <?php
+  if (!isset($_POST['registered'])) {
+    back();
+  }
   ?>
 
 
 
-  <?php back() ?>
 
 </body>
 
