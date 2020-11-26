@@ -85,6 +85,9 @@
 
 .content{
   margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .table2{
@@ -97,15 +100,17 @@
 
 
 .tablein{
-  margin-top: 30px;
- 
-  padding:10px;
 }
 
-.image1{
-  height: 15px;
-  padding: 10px;
-  float: right;
+.tableFunctions{
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  align-items: center;
+}
+
+.tableFunctionsFloater {
+  flex: 1;
 }
 
 
@@ -129,3 +134,5 @@ input[ type=text], input[ type=password] , input[type=email], select {
   resize: vertical;
 	
 }
+
+

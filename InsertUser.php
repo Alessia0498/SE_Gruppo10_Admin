@@ -27,7 +27,7 @@
 <p><label for="password">Password: <input type="password" required="required"  name="password" id="password" placeholder="Inserisci password" />
 </label></p> 
 
-<p><label for="repassword">  Conferma password: <input type="password"  required="required"  name="repassword" id="repassword" placeholder="Conferma password" />
+<p><label for="repassword"> Conferma password: <input type="password"  required="required"  name="repassword" id="repassword" placeholder="Conferma password" />
 </label></p> 
 
 
