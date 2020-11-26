@@ -24,9 +24,15 @@
 		<p><label for="username"> Username: <input type="text" required="required" name="username" id="username" placeholder="Inserisci username" />
 			</label></p>
 
-		<p><label for="role"> Ruolo: <input type="text" required="required" name="role" id="role" placeholder="Inserisci ruolo utente" />
+		<p><label for="role"> Ruolo: <select name="role" id="role" class="role">
+              <option value="maintainer">Mantainer</option>
+              <option value="planner">Planner</option>
+              <option value="systemAdministrator">System Administrator</option>
+
+            </select>
 			</label></p>
 
+		
 		<p><label for="password">Password: <input type="password" required="required" name="password" id="password" placeholder="Inserisci password" />
 			</label></p>
 
