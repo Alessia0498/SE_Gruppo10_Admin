@@ -19,7 +19,7 @@
 
 	?>
 
-	<form method="post" action="UserList.php?create=yes" id="form1" name="form1" enctype="multipart/form-data">
+	<form method="post" action="ViewSystemUsers.php?create=yes" id="form1" name="form1" enctype="multipart/form-data">
 
 		<p><label for="username"> Username: <input type="text" required="required" name="username" id="username" placeholder="Inserisci username" />
 			</label></p>
