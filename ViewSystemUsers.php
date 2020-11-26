@@ -99,12 +99,7 @@
   }
 
   ?>
-  <?php
-  if (!isset($_POST['registered'])) {
-    back();
-  }
 
-  ?>
 
 
 
