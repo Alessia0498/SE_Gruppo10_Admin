@@ -24,7 +24,7 @@
 
     <div class="tableFunctions">
       <div class="tableFunctionsFloater"></div>
-      <a href="InsertUser.php?create=yes"><img src="più.png" style="height:20px" title="Insert new user"></a>
+      <a href="InsertUser.php?create=yes"><img src="assets/più.png" style="height:20px" title="Insert new user"></a>
     </div>
 
 
@@ -36,7 +36,7 @@
       $users = array(
         array("username" => "ale984", "role" => "maintainer"),
         array("username" => "marc58", "role" => "maintainer"),
-        array("username" => "tony145", "role" => "maintainer"),
+        array("username" => "tony145", "role" => "planner"),
         array("username" => "ale984", "role" => "maintainer"),
         array("username" => "ale984", "role" => "maintainer")
       );
@@ -75,15 +75,7 @@
   </div>
 
 
-  <?php
-
-
-
-
-
-
-
-  generateFooter() ?>
+  <?php generateFooter(); ?>
 
 </body>
 

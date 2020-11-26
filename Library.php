@@ -1,12 +1,13 @@
 <?php
-function generateHeader() {
-  echo "<div id=\"header\" class=\"topnav\">
+function generateHeader()
+{
+	echo "<div id=\"header\" class=\"topnav\">
   <a class=\"lineeMenu\" onclick=\"openNav()\" href=\"#home\">☰ Lista Utenti</a>
-  <img class=\"image\" src=\"login.png\">
+  <img class=\"image\" src=\"assets\login2.png\">
   </div>";
-    
 
-   echo "
+
+	echo "
 
 	<div id=\"mySidenav\" class=\"sidenav\">
 	  <a href=\"javascript:void(0)\" class=\"closebtn\" onclick=\"closeNav()\">&times;</a>
@@ -28,15 +29,12 @@ function generateHeader() {
 	  document.getElementById(\"mySidenav\").style.width = \"0\";
 	}
 	</script> ";
+}
 
 
-
-
-} 
-
-
-function generateFooter(){
-  echo "
+function generateFooter()
+{
+	echo "
   <div class=\"footer\">
     <div data-role=\"footer\" class=\"ui-bar\">
 	<a href=\"#\" data-role=\"button\">pagina successiva</a>
@@ -45,7 +43,8 @@ function generateFooter(){
 </div>";
 }
 
-function back(){
+function back()
+{
 	echo "
 	<div class=\"footer\">
 	  <div data-role=\"footer\" class=\"ui-bar\">
@@ -53,8 +52,13 @@ function back(){
 	  
   
   </div>";
-
 }
 
-
-?>
+function gotopage($indirizzo = "")
+{
+	$message = "Passwords don\'t match.Try again!";
+	echo 	'<script language="javascript">
+	 		self.location="' . $indirizzo . '";
+			alert("' . $message . '");
+			</script>';
+}

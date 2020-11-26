@@ -14,34 +14,32 @@
   <?php
 
   require_once 'Library.php';
-  generateHeader(); ?>
+  generateHeader();
+  session_start(); ?>
 
   <div class="tableFunctionsModify">
     <div class="tableFunctionsFloater"></div>
-    <a href="ModifyUser.php?modify=yes"><img src="modify.png" style="height:50px" title="Modify user"></a>
+    <a href="ModifyUser.php?modify=yes"><img src="assets/modify.png" style="height:50px" title="Modify user"></a>
   </div>
 
   <div class="tableFunctionsDelete">
     <div class="tableFunctionsFloater"></div>
-    <a href="DeleteUser.php?delete=yes"><img src="delete.jpg" style="height:50px" title="Delete user"></a>
+    <a href="DeleteUser.php?delete=yes"><img src="assets/delete.jpg" style="height:50px" title="Delete user"></a>
   </div>
 
   <?php
-  if (isset($_GET['username'])) {
+  if (isset($_GET['username']) && isset($_GET['role'])) {
 
     echo
       "<h2>User Information</h2>
        <p> Username: " . $_GET['username'] . "</p>";
-  }
-
-  if (isset($_GET['role'])) {
 
     echo "<p>Role: " . $_GET['role'] . "</p>";
   }
 
   if (isset($_POST['registered']) && $_GET['create']) {
 
-    session_start();
+
 
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['password'] = $_POST['password'];
@@ -53,10 +51,11 @@
 
 
     if ($_SESSION['password'] == $_SESSION['repassword']) {
-      $message = "Succefully entered user!";
+      $message = "Successfully entered user!";
     } else {
 
-      die('<h3 style="text-align: center; color: red">Passwords don\'t match.<a href="InsertUser.php">Try again!</a></h3>');
+      gotoPage("InsertUser.php");
+      exit;
     }
 
 
@@ -98,11 +97,13 @@
 
     echo "<a href='UserList.php?username=" . $_SESSION['username'] . "&role=" . $_SESSION['role'] . "'>Indietro</a>";
   }
+
   ?>
   <?php
   if (!isset($_POST['registered'])) {
     back();
   }
+
   ?>
 
 

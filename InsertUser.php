@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Nuovo Utente</title>
+	<title>Insert User</title>
 	<meta name="author" content="gruppo 10" />
 	<link rel="stylesheet" type="text/css" href="Index.css" />
 	<meta name="content" content="System User List View" />
@@ -15,6 +15,7 @@
 
 	require_once 'Library.php';
 	generateHeader();
+	session_start();
 
 
 	?>
@@ -25,14 +26,14 @@
 			</label></p>
 
 		<p><label for="role"> Ruolo: <select name="role" id="role" class="role">
-              <option value="maintainer">Mantainer</option>
-              <option value="planner">Planner</option>
-              <option value="systemAdministrator">System Administrator</option>
+					<option value="maintainer">Mantainer</option>
+					<option value="planner">Planner</option>
+					<option value="system administrator">System Administrator</option>
 
-            </select>
+				</select>
 			</label></p>
 
-		
+
 		<p><label for="password">Password: <input type="password" required="required" name="password" id="password" placeholder="Inserisci password" />
 			</label></p>
 
@@ -43,7 +44,10 @@
 		<br><input type="submit" class="button" name="registered" value="Inserisci nuovo utente"> </input>
 	</form>
 
-	<?php back(); ?>
+	<?php
+
+
+	back(); ?>
 
 
 
