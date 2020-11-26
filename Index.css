@@ -113,6 +113,22 @@
   flex: 1;
 }
 
+.tableFunctionsModify{
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  align-items: center;
+  float:right;
+}
+
+.tableFunctionsDelete{
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  align-items: center;
+  float: right;
+}
+
 
 input[ type=text], input[ type=password] , input[type=email], select {
   display:block;

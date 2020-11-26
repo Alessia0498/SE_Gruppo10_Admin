@@ -15,13 +15,15 @@
 
   require_once 'Library.php';
   generateHeader(); ?>
-
+   
+   <div class="tableFunctionsModify">
   <div class="tableFunctionsFloater"></div>
-  <a href="ModifyUser.php?modify=yes"><img src="modify.png" style="height:20px" title="Modify user"></a>
+  <a href="ModifyUser.php?modify=yes"><img src="modify.png" style="height:50px" title="Modify user"></a>
   </div>
 
+  <div class="tableFunctionsDelete">
   <div class="tableFunctionsFloater"></div>
-  <a href="DeleteUser.php?delete=yes"><img src="delete.jpg" style="height:20px" title="Delete user"></a>
+  <a href="DeleteUser.php?delete=yes"><img src="delete.jpg" style="height:50px" title="Delete user"></a>
   </div>
 
   <?php
