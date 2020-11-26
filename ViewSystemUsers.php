@@ -19,13 +19,13 @@
       
         echo 
         "<h2>User Information</h2>
-        Username: ".$_GET['username']."<br>";
+       <p> Username: ".$_GET['username']."</p>";
        
       }
 
       if(isset($_GET['role'])){
       
-        echo "Role: ".$_GET['role']."<br>";
+        echo "<p>Role: ".$_GET['role']."</p>";
        
       }
 

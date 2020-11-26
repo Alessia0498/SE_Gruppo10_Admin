@@ -18,11 +18,13 @@
   require_once 'Library.php';
   generateHeader(); ?>
 
-
-
   <div class="content">
 
-    <a href="InsertUser.php?create=yes"><img class="image1" src="più.png" title="Insert new user"></a>
+    <div class="tableFunctions">
+      <div class="tableFunctionsFloater"></div>
+      <a href="InsertUser.php?create=yes"><img src="più.png" style="height:20px" title="Insert new user"></a>
+    </div>
+
 
     <div class="tablein">
       <?php
