@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>User List</title>
-	<meta name="author" content="gruppo 10"/>
-	<link rel="stylesheet" type="text/css" href="Index.css"/>
-	<meta name="content" content="System User List View"/>
-	<meta charset="utf-8"/>
+  <title>User List</title>
+  <meta name="author" content="gruppo 10" />
+  <link rel="stylesheet" type="text/css" href="Index.css" />
+  <meta name="content" content="System User List View" />
+  <meta charset="utf-8" />
 
 </head>
+
 <body>
-<?php
-     
-     require_once 'Library.php'; generateHeader(); 
-     
-    
+  <?php
 
-     if(isset($_GET['username'])){
-      
-        echo 
-        "<h2>User Information</h2>
-       <p> Username: ".$_GET['username']."</p>";
-       
-      }
+  require_once 'Library.php';
+  generateHeader(); ?>
 
-      if(isset($_GET['role'])){
-      
-        echo "<p>Role: ".$_GET['role']."</p>";
-       
-      }
+  <div class="tableFunctionsFloater"></div>
+  <a href="ModifyUser.php?modify=yes"><img src="modify.png" style="height:20px" title="Modify user"></a>
+  </div>
 
-      
-     ?>
-    
-    
+  <div class="tableFunctionsFloater"></div>
+  <a href="DeleteUser.php?delete=yes"><img src="delete.jpg" style="height:20px" title="Delete user"></a>
+  </div>
 
-    <?php back()?>
+  <?php
+  if (isset($_GET['username'])) {
+
+    echo
+      "<h2>User Information</h2>
+       <p> Username: " . $_GET['username'] . "</p>";
+  }
+
+  if (isset($_GET['role'])) {
+
+    echo "<p>Role: " . $_GET['role'] . "</p>";
+  }
+
+
+  ?>
+
+
+
+  <?php back() ?>
 
 </body>
+
 </html>
