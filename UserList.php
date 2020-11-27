@@ -37,8 +37,8 @@
         array("username" => "ale984", "role" => "maintainer"),
         array("username" => "marc58", "role" => "maintainer"),
         array("username" => "tony145", "role" => "planner"),
-        array("username" => "ale984", "role" => "maintainer"),
-        array("username" => "ale984", "role" => "maintainer")
+        array("username" => "wanda84", "role" => "maintainer"),
+        array("username" => "tina84", "role" => "maintainer")
       );
 
       echo "<table class='table2' border='1'>";
@@ -73,6 +73,8 @@
       ?>
     </div>
   </div>
+
+
 
 
   <?php generateFooter(); ?>

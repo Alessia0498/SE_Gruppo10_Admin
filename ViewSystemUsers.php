@@ -17,19 +17,20 @@
   generateHeader();
   session_start(); ?>
 
-  <div class="tableFunctionsModify">
+  <!--<div class="tableFunctionsModify">
     <div class="tableFunctionsFloater"></div>
     <a href="ModifyUser.php?modify=yes"><img src="assets/modify.png" style="height:50px" title="Modify user"></a>
-  </div>
+  </div>-->
 
-  <div class="tableFunctionsDelete">
-    <div class="tableFunctionsFloater"></div>
-    <a href="DeleteUser.php?delete=yes"><img src="assets/delete.jpg" style="height:50px" title="Delete user"></a>
-  </div>
 
   <?php
   if (isset($_GET['username']) && isset($_GET['role'])) {
 
+  ?> <div class="tableFunctionsDelete">
+      <div class="tableFunctionsFloater"></div>
+      <a href="DeleteUser.php?delete=yes&username=<?php echo $_GET['username']; ?>&role=<?php echo $_GET['role']; ?>"><img src="assets/iconBucket.jpg" style="height:50px" title="Delete user" onclick="return mostraMessaggio();"></a>
+    </div>
+  <?php
     echo
       "<h2 style='text-align:center'>User Information</h2> 
        <p> Username: " . $_GET['username'] . "</p>";
@@ -54,8 +55,7 @@
       $message = "Successfully entered user!";
     } else {
 
-      gotoPage("InsertUser.php");
-      exit;
+      gotoPage("InsertUser.php?error=yes");
     }
 
 
@@ -65,20 +65,6 @@
 
 
 
-
-
-
-    $_SESSION['user'] = array(
-      array("username" => "ale984", "role" => "maintainer"),
-      array("username" => "marc58", "role" => "maintainer"),
-      array("username" => "tony145", "role" => "maintainer"),
-      array("username" => "ale984", "role" => "maintainer"),
-      array("username" => "ale984", "role" => "maintainer")
-    );
-
-
-    $_SESSION['user1'] = array("username" => $_SESSION['username'], "role" => $_SESSION['role']);
-    array_push($_SESSION['user'], $_SESSION['user1']);
 
     echo "<table class='table2' border='1'>";
 
@@ -100,7 +86,27 @@
     <a class=\"tableLink\" href='UserList.php?username=" . $_SESSION['username'] . "&role=" . $_SESSION['role'] . "'>Back</a>";
   }
 
+  if (!isset($_POST['registered'])) {
+    back();
+  }
+
+
   ?>
+  <script type="text/javascript">
+    function mostraMessaggio() {
+
+      if (confirm("Are you sure you want to cancel?")) {
+
+        return true;
+
+      } else {
+        self.location = 'UserList.php';
+        return false;
+
+      }
+
+    }
+  </script>
 
 
 

@@ -3,7 +3,7 @@ function generateHeader()
 {
 	echo "<div id=\"header\" class=\"topnav\">
   <a class=\"lineeMenu\" onclick=\"openNav()\" href=\"#home\">☰ User List</a>
-  <img class=\"image\" src=\"assets\login2.png\">
+  <img class=\"image\" src=\"assets\login.png\">
   </div>";
 
 
@@ -56,9 +56,9 @@ function back()
 
 function gotopage($indirizzo = "")
 {
-	$message = "Passwords don\'t match.Try again!";
+
 	echo 	'<script language="javascript">
-	 		self.location="' . $indirizzo . '";
-			alert("' . $message . '");
-			</script>';
+	 		self.location="' . $indirizzo . '"</script>';
+	//alert("' . $message . '");
+	//</script>';
 }
