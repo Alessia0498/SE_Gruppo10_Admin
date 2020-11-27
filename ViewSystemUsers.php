@@ -31,7 +31,7 @@
   if (isset($_GET['username']) && isset($_GET['role'])) {
 
     echo
-      "<h2>User Information</h2>
+      "<h2 style='text-align:center'>User Information</h2> 
        <p> Username: " . $_GET['username'] . "</p>";
 
     echo "<p>Role: " . $_GET['role'] . "</p>";
@@ -95,7 +95,9 @@
 
 
 
-    echo "<a href='UserList.php?username=" . $_SESSION['username'] . "&role=" . $_SESSION['role'] . "'>Indietro</a>";
+    echo "
+    <div class=\"footer\">
+    <a href='UserList.php?username=" . $_SESSION['username'] . "&role=" . $_SESSION['role'] . "'>Back</a>";
   }
 
   ?>

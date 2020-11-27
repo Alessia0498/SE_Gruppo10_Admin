@@ -2,7 +2,7 @@
 function generateHeader()
 {
 	echo "<div id=\"header\" class=\"topnav\">
-  <a class=\"lineeMenu\" onclick=\"openNav()\" href=\"#home\">☰ Lista Utenti</a>
+  <a class=\"lineeMenu\" onclick=\"openNav()\" href=\"#home\">☰ User List</a>
   <img class=\"image\" src=\"assets\login2.png\">
   </div>";
 
@@ -37,7 +37,7 @@ function generateFooter()
 	echo "
   <div class=\"footer\">
     <div data-role=\"footer\" class=\"ui-bar\">
-	<a href=\"#\" data-role=\"button\">pagina successiva</a>
+	<a href=\"#\" data-role=\"button\">Next Page</a>
 	
 
 </div>";
@@ -48,7 +48,7 @@ function back()
 	echo "
 	<div class=\"footer\">
 	  <div data-role=\"footer\" class=\"ui-bar\">
-	  <a href=\"UserList.php\" data-role=\"button\">Indietro</a>
+	  <a href=\"UserList.php\" data-role=\"button\">Back</a>
 	  
   
   </div>";
