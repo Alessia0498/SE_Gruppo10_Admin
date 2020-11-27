@@ -63,9 +63,9 @@
       foreach ($_SESSION['usersession'] as $x => $user) {
 
 
-        echo "<tr>
-      <td width='35%' height='100%' align='center'><a href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user["username"] . "</a></td>
-      <td width='35%' height='100%' align='center'>" . $user['role'] . "</td>  
+        echo "<tr> 
+      <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user["username"] . "</a></td>
+      <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user['role'] . "</a></td>  
     </tr>";
       }
       echo "</table>";

@@ -96,8 +96,8 @@
 
 
     echo "
-    <div class=\"footer\">
-    <a href='UserList.php?username=" . $_SESSION['username'] . "&role=" . $_SESSION['role'] . "'>Back</a>";
+    <div class=\"footer1\">
+    <a class=\"tableLink\" href='UserList.php?username=" . $_SESSION['username'] . "&role=" . $_SESSION['role'] . "'>Back</a>";
   }
 
   ?>

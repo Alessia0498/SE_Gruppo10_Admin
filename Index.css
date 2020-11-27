@@ -77,6 +77,13 @@
   float:left;
 }
 
+
+.footer1{
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
 .content{
   margin-left: 10px;
   display: flex;
@@ -159,4 +166,9 @@ input[ type=text], input[ type=password] , input[type=email], select {
 
 .p1{
   text-align: center;
+}
+
+.tableLink{
+  text-decoration: none;
+  color: black;
 }

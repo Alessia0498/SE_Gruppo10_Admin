@@ -37,7 +37,7 @@
 		<p class="p1"><label for="password">Password: <input type="password" required="required" name="password" id="password" placeholder="Enter a  password" />
 			</label></p>
 
-		<p class="p1"><label for="repassword"> Conferma password: <input type="password" required="required" name="repassword" id="repassword" placeholder="Confirm password" />
+		<p class="p1"><label for="repassword"> Confirm password: <input type="password" required="required" name="repassword" id="repassword" placeholder="Confirm password" />
 			</label></p>
 
 

@@ -37,7 +37,7 @@ function generateFooter()
 	echo "
   <div class=\"footer\">
     <div data-role=\"footer\" class=\"ui-bar\">
-	<a href=\"#\" data-role=\"button\">Next Page</a>
+	<a  class=\"tableLink\" href=\"#\" data-role=\"button\">Next Page</a>
 	
 
 </div>";
@@ -48,7 +48,7 @@ function back()
 	echo "
 	<div class=\"footer\">
 	  <div data-role=\"footer\" class=\"ui-bar\">
-	  <a href=\"UserList.php\" data-role=\"button\">Back</a>
+	  <a class=\"tableLink\" href=\"UserList.php\" data-role=\"button\">Back</a>
 	  
   
   </div>";
