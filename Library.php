@@ -59,6 +59,4 @@ function gotopage($indirizzo = "")
 
 	echo 	'<script language="javascript">
 	 		self.location="' . $indirizzo . '"</script>';
-	//alert("' . $message . '");
-	//</script>';
 }

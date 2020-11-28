@@ -25,41 +25,13 @@
             if ($v['username'] == $username22)
                 unset($a[$k]);
         }
-        $a = array_values($a);
+
+        $_SESSION['usersession'] = $a;
     }
+
+    echo '<h3 style="text-align: center; color: green">User deleted!</h3>';
+    back();
     ?>
-    <div class="content">
-
-        <div class="tableFunctions">
-            <div class="tableFunctionsFloater"></div>
-
-        </div>
-
-        <div class="tablein">
-
-            <?php
-            echo "<table class='table2' border='1'>";
-            echo "<h3 style='text-align: center; color: green'>User deleted!</h3>";
-            echo "<tr>
-      <th>Username</th>
-      <th>Role</th>
-      </tr>";
-
-            foreach ($a as $x => $user) {
-
-
-                echo "<tr> 
-      <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user["username"] . "</a></td>
-      <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user['role'] . "</a></td>  
-    </tr>";
-            }
-            echo "</table>";
-            echo "<br>";
-
-            back();
-            ?>
-        </div>
-    </div>
 
 
 </body>

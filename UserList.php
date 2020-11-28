@@ -33,13 +33,7 @@
 
 
 
-      $users = array(
-        array("username" => "ale984", "role" => "maintainer"),
-        array("username" => "marc58", "role" => "maintainer"),
-        array("username" => "tony145", "role" => "planner"),
-        array("username" => "wanda84", "role" => "maintainer"),
-        array("username" => "tina84", "role" => "maintainer")
-      );
+
 
       echo "<table class='table2' border='1'>";
 
@@ -48,27 +42,24 @@
       <th>Role</th>
       </tr>";
 
-
-      $_SESSION['usersession'] = $users;
-
-      if (isset($_GET['username']) && $_GET['role']) {
-
-        $new = array('username' => $_GET['username'], 'role' => $_GET['role']);
-
-        array_push($_SESSION['usersession'], $new);
+      if (!isset($_SESSION['usersession'])) {
+        $_SESSION['usersession'] = array(array('username' => '', 'role' => ''));
       }
 
 
 
-      foreach ($_SESSION['usersession'] as $x => $user) {
+
+      if (isset($_SESSION['usersession'])) {
+        foreach ($_SESSION['usersession'] as $x => $user) {
 
 
-        echo "<tr> 
+          echo "<tr> 
       <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user["username"] . "</a></td>
       <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user['role'] . "</a></td>  
     </tr>";
+        }
+        echo "</table>";
       }
-      echo "</table>";
 
       ?>
     </div>

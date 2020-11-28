@@ -15,12 +15,13 @@
 
   require_once 'Library.php';
   generateHeader();
-  session_start(); ?>
+  session_start();
 
-  <!--<div class="tableFunctionsModify">
-    <div class="tableFunctionsFloater"></div>
-    <a href="ModifyUser.php?modify=yes"><img src="assets/modify.png" style="height:50px" title="Modify user"></a>
-  </div>-->
+
+  $xxxx = $_SESSION['usersession'];
+
+  ?>
+
 
 
   <?php
@@ -30,6 +31,12 @@
       <div class="tableFunctionsFloater"></div>
       <a href="DeleteUser.php?delete=yes&username=<?php echo $_GET['username']; ?>&role=<?php echo $_GET['role']; ?>"><img src="assets/iconBucket.jpg" style="height:50px" title="Delete user" onclick="return mostraMessaggio();"></a>
     </div>
+
+    <div class="tableFunctionsModify">
+      <div class="tableFunctionsFloater"></div>
+      <a href="ModifyUser.php?modify=yes&username=<?php echo $_GET['username']; ?>&role=<?php echo $_GET['role']; ?>"><img src="assets/modify.png" style="height:55px" title="Modify user"></a>
+    </div>
+
   <?php
     echo
       "<h2 style='text-align:center'>User Information</h2> 
@@ -48,6 +55,11 @@
     $_SESSION['role'] = $_POST['role'];
 
 
+
+
+    $new = array('username' => $_SESSION['username'], 'role' => $_SESSION['role']);
+    $xxxx[] = $new;
+    $_SESSION['usersession'] = $xxxx;
 
 
 
@@ -78,17 +90,10 @@
     </tr>";
 
     echo "</table>";
-
-
-
-    echo "
-    <div class=\"footer1\">
-    <a class=\"tableLink\" href='UserList.php?username=" . $_SESSION['username'] . "&role=" . $_SESSION['role'] . "'>Back</a>";
   }
 
-  if (!isset($_POST['registered'])) {
-    back();
-  }
+  back();
+
 
 
   ?>
