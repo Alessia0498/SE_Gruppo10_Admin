@@ -54,8 +54,7 @@
     $_SESSION['repassword'] = $_POST['repassword'];
     $_SESSION['role'] = $_POST['role'];
 
-
-
+    if ($_SESSION['password'] == $_SESSION['repassword']) {
 
     $new = array('username' => $_SESSION['username'], 'role' => $_SESSION['role']);
     $xxxx[] = $new;
@@ -63,7 +62,6 @@
 
 
 
-    if ($_SESSION['password'] == $_SESSION['repassword']) {
       $message = "Successfully entered user!";
     } else {
 
@@ -90,6 +88,28 @@
     </tr>";
 
     echo "</table>";
+  }
+  
+
+  if (isset($_POST['save']) && $_GET['modify']) {
+
+    $_SESSION['username']=$_POST['username'];
+    $_SESSION['role']=$_POST['role'];
+
+
+    
+   $new = array('username' => $_POST['username'], 'role' => $_POST['role']);
+   $new1= array('username'=>$_GET ['username'],'role'=>$_GET['role']);
+    if ($_GET['username']!==$_POST['username']){
+
+      unset($xxxx['$new1']);
+      $xxxx[] = $new;
+
+     // $xxxx[array_search($us,$xxxx)]=$xxxx[$new];
+     /* $new[array_search($new, $xxxx)]= $new;*/
+    //echo array_search($new ,$xxxx ,true);
+    }  
+    $_SESSION['usersession'] = $xxxx;
   }
 
   back();
