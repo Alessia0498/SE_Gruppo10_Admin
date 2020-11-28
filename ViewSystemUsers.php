@@ -73,22 +73,6 @@
     if (isset($message)) {
       echo '<h3 style="text-align: center; color: green">' . $message . '</h3>';
     }
-
-
-
-
-    echo "<table class='table2' border='1'>";
-
-    echo "<tr>
-      <th>Username</th>
-      <th>Role</th>
-      </tr>";
-    echo "<tr>
-      <td width='35%' height='100%' align='center'>" . $_SESSION["username"] . "</td>
-      <td width='35%' height='100%' align='center'>" . $_SESSION["role"] . "</td>  
-    </tr>";
-
-    echo "</table>";
   }
 
 
@@ -109,14 +93,14 @@
 
 
     $_SESSION['usersession'] = $xxxx;
+    echo "<h3 style='color:green'>User modified!</h3>";
 
     echo
-      "
-      <h2 style='text-align:center'>User Information Modified In</h2> 
+      "<h2 style='text-align:center'>User Information Modified In</h2> 
        <p> Username: " . $_POST['username'] . "</p>";
 
 
-     
+
 
     echo "<p>Role: " . $_POST['role'] . "</p>";
   }
