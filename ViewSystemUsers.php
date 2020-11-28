@@ -56,9 +56,9 @@
 
     if ($_SESSION['password'] == $_SESSION['repassword']) {
 
-    $new = array('username' => $_SESSION['username'], 'role' => $_SESSION['role']);
-    $xxxx[] = $new;
-    $_SESSION['usersession'] = $xxxx;
+      $new = array('username' => $_SESSION['username'], 'role' => $_SESSION['role']);
+      $xxxx[] = $new;
+      $_SESSION['usersession'] = $xxxx;
 
 
 
@@ -89,27 +89,31 @@
 
     echo "</table>";
   }
-  
-
-  if (isset($_POST['save']) && $_GET['modify']) {
-
-    $_SESSION['username']=$_POST['username'];
-    $_SESSION['role']=$_POST['role'];
 
 
-    
-   $new = array('username' => $_POST['username'], 'role' => $_POST['role']);
-   $new1= array('username'=>$_GET ['username'],'role'=>$_GET['role']);
-    if ($_GET['username']!==$_POST['username']){
 
-      unset($xxxx['$new1']);
-      $xxxx[] = $new;
+  if (isset($_GET['modify']) && isset($_GET['username']) && isset($_GET['role']) && isset($_POST['save'])) {
+    $newusername = $_GET['username'];
+    $newrole = $_GET['role'];
 
-     // $xxxx[array_search($us,$xxxx)]=$xxxx[$new];
-     /* $new[array_search($new, $xxxx)]= $new;*/
-    //echo array_search($new ,$xxxx ,true);
-    }  
+    $new = array('username' => $_POST['username'], 'role' => $_POST['role']);
+
+
+    foreach ($xxxx as $k => $v) {
+      if ($v['username'] == $newusername && $v['role'] == $newrole) {
+        unset($xxxx[$k]);
+        $xxxx[] = $new;
+      }
+    }
+
+
     $_SESSION['usersession'] = $xxxx;
+
+    echo
+      "<h2 style='text-align:center'>User Information Modified In</h2> 
+       <p> Username: " . $_POST['username'] . "</p>";
+
+    echo "<p>Role: " . $_POST['role'] . "</p>";
   }
 
   back();

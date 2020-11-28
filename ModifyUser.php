@@ -18,35 +18,43 @@
 
     session_start();
 
-?>
+    ?>
 
-<div class="form">
+    <div class="form">
 
-<form method="post" action="ViewSystemUsers.php?modify=yes&username=<?php echo $_GET['username']; ?>&role=<?php echo $_GET['role']; ?>" id="form2" name="form2" enctype="multipart/form-data" >
+        <form method="post" action="ViewSystemUsers.php?modify=yes&username=<?php echo $_GET['username']; ?>&role=<?php echo $_GET['role']; ?>" id="form2" name="form2" enctype="multipart/form-data">
 
-<p class="p1"><label for="username"> Username: <input type="text" required="required" name="username" id="username" value="<?php echo $_GET['username']?>"/>
-	</label></p>
+            <p class="p1"><label for="username"> Username: <input type="text" required="required" name="username" id="username" value="<?php echo $_GET['username'] ?>" />
+                </label></p>
 
-    <p class="p1"><label for="role"> Role: <select name="role" id="role" class="role">
-    <?php if ($_GET['role']=='maintainer'){ ?>
-    <option value="$_GET['role']" selected = "select">Maintainer</option>
-    <?php } ?>
-    <?php if ($_GET['role']=='planner'){?>
-    <option value="planner" selected="select">Planner</option>
-   <?php } ?>
-   <?php if ($_GET['role']=='system administrator')?>
-<option value="system administrator"selected="select">System Administrator</option>
-<? php } ?>
-					</select>
-				</label></p>
-    
+            <p class="p1"><label for="role">
+                    Role: <select name="role" id="role" class="role">
+                        <?php if ($_GET['role'] == 'maintainer') { ?>
+                            <option value="maintainer" selected>Maintainer</option>
+                            <option value="planner">Planner</option>
+                            <option value="system administrator">System Administrator</option>
+                        <?php } ?>
+                        <?php if ($_GET['role'] == 'planner') { ?>
+                            <option value="maintainer">Maintainer</option>
+                            <option value="planner" selected>Planner</option>
+                            <option value="system administrator">System Administrator</option>
+                        <?php } ?>
+                        <?php if ($_GET['role'] == 'system administrator') { ?>
+                            <option value="maintainer">Maintainer</option>
+                            <option value="planner">Planner</option>
+                            <option value="system administrator" selected>System Administrator</option>
+                        <?php } ?>
+                    </select>
+                </label></p>
 
-    <input type="submit" name="save" id="save" value="Save" class= "button"></input>
-</form>
+
+            <input type="submit" name="save" id="save" value="Save" class="button"></input>
+        </form>
 
 
-<?php
- back();?>
+        <?php
+        back(); ?>
 
-  </body>
+</body>
+
 </html>
