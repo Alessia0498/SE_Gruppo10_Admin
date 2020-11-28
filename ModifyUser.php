@@ -6,6 +6,7 @@
     <meta name="author" content="gruppo 10" />
     <link rel="stylesheet" type="text/css" href="Index.css" />
     <meta name="content" content="System User List View" />
+    <link rel="icon" href="assets/service.jpg" type="image/jpg" />
     <meta charset="utf-8" />
 
 </head>
@@ -48,7 +49,7 @@
                 </label></p>
 
 
-            <input type="submit" name="save" id="save" value="Save" class="button"></input>
+            <button type="submit" name="save" id="save" value="Save" class="button"> Save</button>
         </form>
 
 

@@ -6,6 +6,7 @@
 	<meta name="author" content="gruppo 10" />
 	<link rel="stylesheet" type="text/css" href="Index.css" />
 	<meta name="content" content="System User List View" />
+	<link rel="icon" href="assets/service.jpg" type="image/jpg" />
 	<meta charset="utf-8" />
 
 </head>
@@ -47,7 +48,7 @@
 				</label></p>
 
 
-			<br><input type="submit" class="button" name="registered" value="Insert a new user"> </input>
+			<br><button type="submit" class="button" name="registered" value="Insert a new user">Insert a new user</button>
 		</form>
 	</div>
 	<?php
