@@ -1,3 +1,15 @@
-<?php
+<!DOCTYPE html>
+<html>
 
- Include 'UserList.php';
+<head>
+
+    <?php
+
+    include 'UserList.php';
+    ?>
+
+</head>
+</body>
+</body>
+
+</html>
