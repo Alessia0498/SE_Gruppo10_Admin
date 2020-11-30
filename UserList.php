@@ -39,8 +39,8 @@
       echo "<table class='table2' border='1'>";
 
       echo "<tr>
-      <th>Username</th>
-      <th>Role</th>
+      <th width='35%' height='100%' align='center'>Username</th>
+      <th width='35%' height='100%' align='center'>Role</th>
       </tr>";
 
       if (!isset($_SESSION['usersession'])) {
@@ -50,7 +50,7 @@
 
 
 
-      if (isset($_SESSION['usersession'])) {
+      if (isset($_SESSION['usersession']) && !empty($_SESSION['usersession'])) {
         foreach ($_SESSION['usersession'] as $x => $user) {
 
 
