@@ -29,23 +29,23 @@
 	<div class="form">
 		<form method="post" action="ViewSystemUsers.php?create=yes" id="form1" name="form1" enctype="multipart/form-data">
 
-			<label for="username"> Username: <input type="text" required="required" name="username" id="username" placeholder="Enter a username" />
-				</label>
+			<label for="username"> Username: <input type="text" required="required" name="username" id="username" placeholder="Enter a username" title="Enter a username" />
+			</label>
 
-			<label for="role"> Role: <select name="role" id="role">
-						<option value="maintainer">Mantainer</option>
-						<option value="planner">Planner</option>
-						<option value="system administrator">System Administrator</option>
+			<label for="role"> Role: <select name="role" id="role" title="Select role">
+					<option value="maintainer">Mantainer</option>
+					<option value="planner">Planner</option>
+					<option value="system administrator">System Administrator</option>
 
-					</select>
-				</label>
+				</select>
+			</label>
 
 
-			<label for="password">Password: <input type="password" required="required" name="password" id="password" placeholder="Enter a  password" />
-				</label>
+			<label for="password">Password: <input type="password" required="required" name="password" id="password" placeholder="Enter a password" title="Enter a password" />
+			</label>
 
-			<label for="repassword"> Confirm password: <input type="password" required="required" name="repassword" id="repassword" placeholder="Confirm password" />
-				</label>
+			<label for="repassword"> Confirm password: <input type="password" required="required" name="repassword" id="repassword" placeholder="Confirm password" title="Confirm password" />
+			</label>
 
 
 			<br><button type="submit" class="button" name="registered" value="Insert a new user">Insert a new user</button>
