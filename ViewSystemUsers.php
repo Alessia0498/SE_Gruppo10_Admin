@@ -41,9 +41,9 @@
   <?php
     echo
       "<h2 style='text-align:center'>User Information</h2> 
-       <p> Username: " . $_GET['username'] . "</p>";
+       <p style='text-align:center'> Username: " . $_GET['username'] . "</p>";
 
-    echo "<p>Role: " . $_GET['role'] . "</p>";
+    echo "<p style='text-align:center'>Role: " . $_GET['role'] . "</p>";
   }
 
   if (isset($_POST['registered']) && $_GET['create']) {
@@ -93,16 +93,16 @@
 
 
     $_SESSION['usersession'] = $xxxx;
-    echo "<h3 style='color:green'>User modified!</h3>";
+    echo "<h3 style='color:green; text-align:center'>User modified!</h3>";
 
     echo
       "<h2 style='text-align:center'>User Information Modified In</h2> 
-       <p> Username: " . $_POST['username'] . "</p>";
+       <p style='text-align:center'> Username: " . $_POST['username'] . "</p>";
 
 
 
 
-    echo "<p>Role: " . $_POST['role'] . "</p>";
+    echo "<p style='text-align:center'>Role: " . $_POST['role'] . "</p>";
   }
 
   back();

@@ -3,7 +3,7 @@ function generateHeader()
 {
 	echo "<div id=\"header\" class=\"topnav\">
   <a class=\"lineeMenu\" onclick=\"openNav()\" href=\"#home\">☰ User List</a>
-  <img class=\"image\" src=\"assets\login.png\">
+  <img class=\"image\" src=\"assets\login2.png\">
   </div>";
 
 

@@ -32,10 +32,6 @@
     <div>
       <?php
 
-
-
-
-
       echo "<table class='table2' border='1'>";
 
       echo "<thead>
@@ -44,25 +40,27 @@
       <th width='35%' height='100%' align='center'>Role</th>
       </tr></thead>";
 
+
       if (!isset($_SESSION['usersession'])) {
         $_SESSION['usersession'] = array(array('username' => '', 'role' => ''));
       }
 
+      $xxxx = $_SESSION['usersession'];
 
+      if (isset($_SESSION['usersession'])) {
 
-
-      if (isset($_SESSION['usersession']) && !empty($_SESSION['usersession'])) {
-        foreach ($_SESSION['usersession'] as $x => $user) {
+        foreach ($xxxx as $x => $user) {
 
 
           echo "<tbody>
           <tr> 
       <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user["username"] . "</a></td>
       <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user['role'] . "</a></td>  
-    </tr></tbody>";
+      </tr></tbody>";
         }
         echo "</table>";
       }
+
 
       ?>
     </div>
@@ -71,7 +69,7 @@
 
 
 
-  <?php generateFooter(); ?>
+
 
 </body>
 
