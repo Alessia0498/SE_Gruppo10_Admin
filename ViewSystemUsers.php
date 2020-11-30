@@ -26,7 +26,7 @@
 
 
   <?php
-  if (isset($_GET['username']) && isset($_GET['role'])) {
+  if (isset($_GET['username']) && isset($_GET['role']) && !isset($_POST['save'])) {
 
   ?> <div class="tableFunctionsDelete">
       <div class="tableFunctionsFloater"></div>
