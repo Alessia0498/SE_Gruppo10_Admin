@@ -15,8 +15,11 @@
 	<?php
 
 	require_once 'Library.php';
+	include 'api.service.php';
 	generateHeader();
 	session_start();
+
+
 
 	if (isset($_GET['error'])) {
 		$message = "Passwords don't match.Try again!";
@@ -27,7 +30,7 @@
 
 	?>
 	<div class="form">
-		<form method="post" action="ViewSystemUsers.php?create=yes" id="form1" name="form1" enctype="multipart/form-data">
+		<form method="post" action="ViewSystemUsers.php" id="form1" name="form1" enctype="multipart/form-data">
 
 			<label for="username"> Username: <input type="text" required="required" name="username" id="username" placeholder="Enter a username" title="Enter a username" />
 			</label>

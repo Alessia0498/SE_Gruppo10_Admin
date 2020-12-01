@@ -15,54 +15,50 @@
   <?php
 
   require_once 'Library.php';
+  include 'api.service.php';
   generateHeader();
   session_start();
 
 
-  $xxxx = $_SESSION['usersession'];
+  //$xxxx = $_SESSION['usersession'];
 
   ?>
 
 
 
   <?php
-  if (isset($_GET['username']) && isset($_GET['role']) && !isset($_POST['save'])) {
+  if (isset($_GET['username']) && !isset($_POST['save'])) {
+    $response = CallApi("GET", "http://arma-se.ddns.net/user/" . $_GET['username']);
+    $user = json_decode($response, true);
 
   ?> <div class="tableFunctionsDelete">
       <div class="tableFunctionsFloater"></div>
-      <a href="DeleteUser.php?delete=yes&username=<?php echo $_GET['username']; ?>&role=<?php echo $_GET['role']; ?>"><img src="assets/iconBucket.jpg" style="height:50px" title="Delete user" onclick="return mostraMessaggio();"></a>
+      <a href="DeleteUser.php?delete=yes&username=<?php echo $user['username']; ?>"><img src="assets/iconBucket.jpg" style="height:50px" title="Delete user" onclick="return showMessage();"></a>
     </div>
 
     <div class="tableFunctionsModify">
       <div class="tableFunctionsFloater"></div>
-      <a href="ModifyUser.php?modify=yes&username=<?php echo $_GET['username']; ?>&role=<?php echo $_GET['role']; ?>"><img src="assets/modify.png" style="height:55px" title="Modify user"></a>
+      <a href="ModifyUser.php?modify=yes&username=<?php echo $user['username']; ?>"><img src="assets/modify.png" style="height:55px" title="Modify user"></a>
     </div>
 
   <?php
     echo
       "<h2 style='text-align:center'>User Information</h2> 
-       <p style='text-align:center'> Username: " . $_GET['username'] . "</p>";
+       <p style='text-align:center'> Username: " . $user['username'] . "</p>";
 
-    echo "<p style='text-align:center'>Role: " . $_GET['role'] . "</p>";
+    echo "<p style='text-align:center'>Role: " . $user['role'] . "</p>";
   }
 
-  if (isset($_POST['registered']) && $_GET['create']) {
+  if (isset($_POST['registered'])) {
 
 
 
-    $_SESSION['username'] = $_POST['username'];
-    $_SESSION['password'] = $_POST['password'];
-    $_SESSION['repassword'] = $_POST['repassword'];
-    $_SESSION['role'] = $_POST['role'];
 
-    if ($_SESSION['password'] == $_SESSION['repassword']) {
+    if ($_POST['password'] == $_POST['repassword']) {
 
-      $new = array('username' => $_SESSION['username'], 'role' => $_SESSION['role']);
-      $xxxx[] = $new;
-      $_SESSION['usersession'] = $xxxx;
-
-
-
+      $new = array('username' => $_POST['username'], 'role' => $_POST['role'], 'password' => $_POST['password'],);
+      $response = CallAPI("POST", "http://arma-se.ddns.net/user", $new);
+      $user = json_decode($response, true);
       $message = "Successfully entered user!";
     } else {
 
@@ -77,32 +73,22 @@
 
 
 
-  if (isset($_GET['modify']) && isset($_GET['username']) && isset($_GET['role']) && isset($_POST['save'])) {
-    $newusername = $_GET['username'];
-    $newrole = $_GET['role'];
+  if (isset($_GET['modify']) && isset($_POST['save']) && isset($_GET['username'])) {
 
     $new = array('username' => $_POST['username'], 'role' => $_POST['role']);
+    $response = CallAPI("PUT", "http://arma-se.ddns.net/user/" . $_GET["username"], $new);
+    $user = json_decode($response, true);
 
-
-    foreach ($xxxx as $k => $v) {
-      if ($v['username'] == $newusername && $v['role'] == $newrole) {
-        unset($xxxx[$k]);
-        $xxxx[] = $new;
-      }
-    }
-
-
-    $_SESSION['usersession'] = $xxxx;
     echo "<h3 style='color:green; text-align:center'>User modified!</h3>";
 
     echo
       "<h2 style='text-align:center'>User Information Modified In</h2> 
-       <p style='text-align:center'> Username: " . $_POST['username'] . "</p>";
+       <p style='text-align:center'> Username: " . $user['username'] . "</p>";
 
 
 
 
-    echo "<p style='text-align:center'>Role: " . $_POST['role'] . "</p>";
+    echo "<p style='text-align:center'>Role: " . $user['role'] . "</p>";
   }
 
   back();
@@ -111,7 +97,7 @@
 
   ?>
   <script type="text/javascript">
-    function mostraMessaggio() {
+    function showMessage() {
 
       if (confirm("Are you sure you want to cancel?")) {
 

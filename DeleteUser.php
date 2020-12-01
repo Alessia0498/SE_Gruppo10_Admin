@@ -15,22 +15,15 @@
     <?php
 
     require_once 'Library.php';
+    include 'api.service.php';
     generateHeader();
-    session_start();
 
-    $a = $_SESSION['usersession'];
 
-    if (isset($_GET['delete']) && isset($_GET['username']) && isset($_GET['role'])) {
-        $username22 = $_GET['username'];
-        foreach ($a as $k => $v) {
-            if ($v['username'] == $username22)
-                unset($a[$k]);
-        }
+    if (isset($_GET['delete']) && isset($_GET['username'])) {
+        CallAPI("DELETE", "http://arma-se.ddns.net/user/" . $_GET["username"]);
 
-        $_SESSION['usersession'] = $a;
+        echo '<h3 style="text-align: center; color: green">User deleted!</h3>';
     }
-
-    echo '<h3 style="text-align: center; color: green">User deleted!</h3>';
     back();
     ?>
 

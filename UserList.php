@@ -17,8 +17,10 @@
   <?php
 
   require_once 'Library.php';
+  include 'api.service.php';
   generateHeader();
-  session_start();
+  $response = CallAPI("GET", "http://arma-se.ddns.net/users");
+  $response = json_decode($response, true);
   ?>
 
   <div class="content">
@@ -41,25 +43,20 @@
       </tr></thead>";
 
 
-      if (!isset($_SESSION['usersession'])) {
-        $_SESSION['usersession'] = array(array('username' => '', 'role' => ''));
-      }
-
-      $xxxx = $_SESSION['usersession'];
-
-      if (isset($_SESSION['usersession'])) {
-
-        foreach ($xxxx as $x => $user) {
 
 
-          echo "<tbody>
+
+      foreach ($response['rows'] as $_ => $user) {
+
+
+        echo "<tbody>
           <tr> 
-      <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user["username"] . "</a></td>
-      <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "&role=" . $user['role'] . "'>" . $user['role'] . "</a></td>  
+      <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "'>" . $user["username"] . "</a></td>
+      <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "'>" . $user['role'] . "</a></td>  
       </tr></tbody>";
-        }
-        echo "</table>";
       }
+      echo "</table>";
+
 
 
       ?>
