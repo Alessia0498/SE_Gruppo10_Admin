@@ -52,11 +52,11 @@
 
 
 			<br><button type="submit" class="button" name="registered" value="Insert a new user">Insert a new user</button>
+
+			<?php back(); ?>
 		</form>
 	</div>
-	<?php
 
-	back(); ?>
 
 
 

@@ -63,16 +63,16 @@
 }
 
 .sidenav .closebtn {
-  margin-left: 180px;
+  /* margin-left: 180px;*/
   right: 25px;
   display: unset;
 }
 
 .footer2 {
   width: 100%;
+  height: 20px;
   text-align: center;
-  padding: 15px 15vw 10px 100px;
-  display: block;
+  margin-top: 20px;
 }
 
 .footer1 {

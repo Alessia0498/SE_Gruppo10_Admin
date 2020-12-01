@@ -45,13 +45,9 @@ function generateFooter()
 
 function back()
 {
-	echo "
-	<div class=\"footer2\">
-	  <div data-role=\"footer2\">
+	echo "<div class=\"footer2\" >
 	  <a class=\"tableLink\" href=\"UserList.php\" data-role=\"button\">Back</a>
-	  
-  
-  </div>";
+	  </div>";
 }
 
 function gotopage($indirizzo = "")
