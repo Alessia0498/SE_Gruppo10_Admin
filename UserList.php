@@ -50,10 +50,13 @@
 
 
         echo "<tbody>
-          <tr> 
-      <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "'>" . $user["username"] . "</a></td>
-      <td width='35%' height='100%' align='center'><a class=\"tableLink\" href='ViewSystemUsers.php?username=" . $user['username'] . "'>" . $user['role'] . "</a></td>  
-      </tr></tbody>";
+          
+          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='ViewSystemUsers.php?username=" . $user['username'] . "'\">
+            <td width='35%' height='100%' align='center'>" . $user['username'] . "</td>
+            <td width='35%' height='100%' align='center'>" . $user['role'] . "</td>  
+          </tr>
+          
+              </tbody>";
       }
       echo "</table>";
 
