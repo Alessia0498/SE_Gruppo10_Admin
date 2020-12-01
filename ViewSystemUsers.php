@@ -29,24 +29,24 @@
   <?php
   if (isset($_GET['username']) && !isset($_POST['save'])) {
     $response = CallApi("GET", "http://arma-se.ddns.net/user/" . $_GET['username']);
-    $user = json_decode($response, true);
+    $data = json_decode($response, true);
 
   ?> <div class="tableFunctionsDelete">
       <div class="tableFunctionsFloater"></div>
-      <a href="DeleteUser.php?delete=yes&username=<?php echo $user['username']; ?>"><img src="assets/iconBucket.jpg" style="height:50px" title="Delete user" onclick="return showMessage();"></a>
+      <a href="DeleteUser.php?delete=yes&username=<?php echo $data['username']; ?>"><img src="assets/iconBucket.jpg" style="height:50px" title="Delete user" onclick="return showMessage();"></a>
     </div>
 
     <div class="tableFunctionsModify">
       <div class="tableFunctionsFloater"></div>
-      <a href="ModifyUser.php?modify=yes&username=<?php echo $user['username']; ?>"><img src="assets/modify.png" style="height:55px" title="Modify user"></a>
+      <a href="ModifyUser.php?modify=yes&username=<?php echo $data['username']; ?>"><img src="assets/modify.png" style="height:55px" title="Modify user"></a>
     </div>
 
   <?php
     echo
       "<h2 style='text-align:center'>User Information</h2> 
-       <p style='text-align:center'> Username: " . $user['username'] . "</p>";
+       <p style='text-align:center'> Username: " . $data['username'] . "</p>";
 
-    echo "<p style='text-align:center'>Role: " . $user['role'] . "</p>";
+    echo "<p style='text-align:center'>Role: " . $data['role'] . "</p>";
   }
 
   if (isset($_POST['registered'])) {
@@ -58,8 +58,13 @@
 
       $new = array('username' => $_POST['username'], 'role' => $_POST['role'], 'password' => $_POST['password'],);
       $response = CallAPI("POST", "http://arma-se.ddns.net/user", $new);
-      $user = json_decode($response, true);
-      $message = "Successfully entered user!";
+      $data = json_decode($response, true);
+
+      if (isset($data["message"])) {
+        echo "<h3 class='error'>" . $data['message'] . "</h3>";
+      } else {
+        $message = "Successfully entered user!";
+      }
     } else {
 
       gotoPage("InsertUser.php?error=yes");
@@ -77,18 +82,23 @@
 
     $new = array('username' => $_POST['username'], 'role' => $_POST['role']);
     $response = CallAPI("PUT", "http://arma-se.ddns.net/user/" . $_GET["username"], $new);
-    $user = json_decode($response, true);
+    $data = json_decode($response, true);
 
-    echo "<h3 style='color:green; text-align:center'>User modified!</h3>";
+    if (isset($data["message"])) {
+      echo "<h3 class='error'>" . $data['message'] . "</h3>";
+    } else {
+      $message = "User modified!";
+      echo '<h3 style="text-align: center; color: green">' . $message . '</h3>';
 
-    echo
-      "<h2 style='text-align:center'>User Information Modified In</h2> 
-       <p style='text-align:center'> Username: " . $user['username'] . "</p>";
+      echo
+        "<h2 style='text-align:center'>User Information Modified In</h2> 
+      <p style='text-align:center'> Username: " . $data['username'] . "</p>";
 
 
 
 
-    echo "<p style='text-align:center'>Role: " . $user['role'] . "</p>";
+      echo "<p style='text-align:center'>Role: " . $data['role'] . "</p>";
+    }
   }
 
   back();

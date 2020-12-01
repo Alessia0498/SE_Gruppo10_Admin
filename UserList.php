@@ -46,14 +46,14 @@
 
 
 
-      foreach ($response['rows'] as $_ => $user) {
+      foreach ($response['rows'] as $_ => $data) {
 
 
         echo "<tbody>
           
-          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='ViewSystemUsers.php?username=" . $user['username'] . "'\">
-            <td width='35%' height='100%' align='center'>" . $user['username'] . "</td>
-            <td width='35%' height='100%' align='center'>" . $user['role'] . "</td>  
+          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='ViewSystemUsers.php?username=" . $data['username'] . "'\">
+            <td width='35%' height='100%' align='center'>" . $data['username'] . "</td>
+            <td width='35%' height='100%' align='center'>" . $data['role'] . "</td>  
           </tr>
           
               </tbody>";

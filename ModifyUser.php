@@ -20,29 +20,29 @@
     session_start();
 
     $response = CallAPI("GET", "http://arma-se.ddns.net/user/" . $_GET['username']);
-    $user = json_decode($response, true);
+    $data = json_decode($response, true);
     ?>
 
     <div class="form">
 
-        <form method="post" action="ViewSystemUsers.php?modify=yes&username=<?php echo $user['username']; ?>" id="form2" name="form2" enctype="multipart/form-data">
+        <form method="post" action="ViewSystemUsers.php?modify=yes&username=<?php echo $data['username']; ?>" id="form2" name="form2" enctype="multipart/form-data">
 
-            <p class="p1"><label for="username"> Username: <input type="text" required="required" name="username" id="username" value="<?php echo $user['username'] ?>" />
+            <p class="p1"><label for="username"> Username: <input type="text" required="required" name="username" id="username" value="<?php echo $data['username'] ?>" />
                 </label></p>
 
             <p class="p1"><label for="role">
                     Role: <select name="role" id="role" class="role">
-                        <?php if ($user['role'] == 'maintainer') { ?>
+                        <?php if ($data['role'] == 'maintainer') { ?>
                             <option value="maintainer" selected>Maintainer</option>
                             <option value="planner">Planner</option>
-                            <option value="system administrator">System Administrator</option>
+                            <option value="admin">System Administrator</option>
                         <?php } ?>
-                        <?php if ($user['role'] == 'planner') { ?>
+                        <?php if ($data['role'] == 'planner') { ?>
                             <option value="maintainer">Maintainer</option>
                             <option value="planner" selected>Planner</option>
-                            <option value="system administrator">System Administrator</option>
+                            <option value="admin">System Administrator</option>
                         <?php } ?>
-                        <?php if ($user['role'] == 'admin') { ?>
+                        <?php if ($data['role'] == 'admin') { ?>
                             <option value="maintainer">Maintainer</option>
                             <option value="planner">Planner</option>
                             <option value="admin" selected>System Administrator</option>

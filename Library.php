@@ -10,7 +10,7 @@ function generateHeader()
 	echo "
 
 	<div id=\"mySidenav\" class=\"sidenav\">
-	  <a href=\"javascript:void(0)\" class=\"closebtn\" onclick=\"closeNav()\">&times;</a>
+	  <a href=\"javascript:void(0)\" class=\"closebtn\" onclick=\"closeNav()\"></a>
 	  
 	  <div id=\"list\">
 	  <a href=\"UserList.php\">Users</a>
