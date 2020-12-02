@@ -4,9 +4,9 @@
 <head>
   <title>User List</title>
   <meta name="author" content="gruppo 10" />
-  <link rel="stylesheet" type="text/css" href="./index.css" />
+  <link rel="stylesheet" type="text/css" href="../index.css" />
   <meta name="content" content="View User Screen" />
-  <link rel="icon" href="assets/service.jpg" type="image/jpg" />
+  <link rel="icon" href="../assets/service.jpg" type="image/jpg" />
   <meta charset="utf-8" />
 
   <script type="text/javascript">
@@ -38,14 +38,14 @@
     <div class="tableFunctionsDelete">
       <div class="tableFunctionsFloater"></div>
       <a href="delete-user.screen.php?delete=yes&username=<?php echo $data['username']; ?>">
-        <img src="assets/iconBucket.jpg" style="height:50px" title="Delete user" onclick="return show_message();">
+        <img src="../assets/iconBucket.jpg" style="height:50px" title="Delete user" onclick="return show_message();">
       </a>
     </div>
 
     <div class="tableFunctionsModify">
       <div class="tableFunctionsFloater"></div>
       <a href="modify-user.screen.php?modify=yes&username=<?php echo $data['username']; ?>">
-        <img src="assets/modify.png" style="height:55px" title="Modify user">
+        <img src="../assets/modify.png" style="height:55px" title="Modify user">
       </a>
     </div>
   <?php

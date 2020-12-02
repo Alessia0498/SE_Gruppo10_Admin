@@ -8,7 +8,9 @@
 
 <body>
   <?php
-  include 'screens/list-users.screen.php';
+  include './common/library.php';
+
+  gotoPage("./screens/list-users.screen.php");
   ?>
 </body>
 

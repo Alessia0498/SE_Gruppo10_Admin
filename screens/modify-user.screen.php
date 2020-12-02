@@ -6,7 +6,7 @@
   <meta name="author" content="gruppo 10" />
   <link rel="stylesheet" type="text/css" href="../index.css" />
   <meta name="content" content="Modify User Screen" />
-  <link rel="icon" href="assets/service.jpg" type="image/jpg" />
+  <link rel="icon" href="../assets/service.jpg" type="image/jpg" />
   <meta charset="utf-8" />
 </head>
 
@@ -14,7 +14,7 @@
   <?php
 
   require_once '../common/library.php';
-  include "../api.service.php";
+  include '../services/api.service.php';
   generate_header();
   session_start();
 
