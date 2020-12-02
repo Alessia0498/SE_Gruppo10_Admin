@@ -10,7 +10,7 @@
   <?php
   include './common/library.php';
 
-  gotoPage("./screens/list-users.screen.php");
+  go_to_page("./screens/list-users.screen.php");
   ?>
 </body>
 
