@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-<head></head>
+<head>
+  <meta name="author" content="gruppo 10" />
+  <meta charset="utf-8" />
+</head>
 
 <body>
-    <?php
-
-    include 'UserList.php';
-    ?>
+  <?php
+  include 'screens/list-users.screen.php';
+  ?>
 </body>
 
 </html>
