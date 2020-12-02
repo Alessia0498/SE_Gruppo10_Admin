@@ -8,6 +8,16 @@
   <meta name="content" content="View User Screen" />
   <link rel="icon" href="assets/service.jpg" type="image/jpg" />
   <meta charset="utf-8" />
+
+  <script type="text/javascript">
+    function show_message() {
+      if (confirm("Are you sure you want to cancel?")) {
+        return true;
+      }
+      self.location = 'list-users.screen.php';
+      return false;
+    }
+  </script>
 </head>
 
 <body>
@@ -15,20 +25,20 @@
   require_once '../common/library.php';
   include '../services/api.service.php';
 
-  generateHeader();
+  generate_header();
   session_start();
   ?>
 
   <?php
   if (isset($_GET['username']) && !isset($_POST['save'])) {
-    $response = API::get_user($_GET['username']);
+    $response = Api::get_user($_GET['username']);
     $data = json_decode($response, true);
 
   ?>
     <div class="tableFunctionsDelete">
       <div class="tableFunctionsFloater"></div>
       <a href="delete-user.screen.php?delete=yes&username=<?php echo $data['username']; ?>">
-        <img src="assets/iconBucket.jpg" style="height:50px" title="Delete user" onclick="return showMessage();">
+        <img src="assets/iconBucket.jpg" style="height:50px" title="Delete user" onclick="return show_message();">
       </a>
     </div>
 
@@ -48,8 +58,8 @@
 
   if (isset($_POST['registered'])) {
     if ($_POST['password'] == $_POST['repassword']) {
-      $new = array('username' => $_POST['username'], 'role' => $_POST['role'], 'password' => $_POST['password'],);
-      $response = API::post_user($new);
+      $new_user = array('username' => $_POST['username'], 'role' => $_POST['role'], 'password' => $_POST['password'],);
+      $response = Api::post_user($new_user);
       $data = json_decode($response, true);
 
       if (isset($data["message"])) {
@@ -58,7 +68,7 @@
         $message = "Successfully entered user!";
       }
     } else {
-      gotoPage("insert-user.screen.php?error=yes");
+      go_to_page("insert-user.screen.php?error=yes");
     }
 
     if (isset($message)) {
@@ -70,8 +80,8 @@
 
   if (isset($_GET['modify']) && isset($_POST['save']) && isset($_GET['username'])) {
 
-    $new = array('username' => $_POST['username'], 'role' => $_POST['role']);
-    $response = API::put_user($_GET["username"], $new);
+    $new_user = array('username' => $_POST['username'], 'role' => $_POST['role']);
+    $response = Api::put_user($_GET["username"], $new_user);
     $data = json_decode($response, true);
 
     if (isset($data["message"])) {
@@ -90,15 +100,6 @@
   back();
 
   ?>
-  <script type="text/javascript">
-    function showMessage() {
-      if (confirm("Are you sure you want to cancel?")) {
-        return true;
-      }
-      self.location = 'list-users.screen.php';
-      return false;
-    }
-  </script>
 
 </body>
 

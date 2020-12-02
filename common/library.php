@@ -1,5 +1,5 @@
 <?php
-function generateHeader()
+function generate_header()
 {
   echo "
   <div id=\"header\" class=\"topnav\">
@@ -38,7 +38,7 @@ function back()
   </div>";
 }
 
-function gotopage($indirizzo = "")
+function go_to_page($indirizzo = "")
 {
   echo   '<script language="javascript">self.location="' . $indirizzo . '"</script>';
 }

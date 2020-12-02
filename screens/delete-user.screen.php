@@ -15,9 +15,9 @@
   require_once '../common/library.php';
   include '../services/api.service.php';
 
-  generateHeader();
+  generate_header();
   if (isset($_GET['delete']) && isset($_GET['username'])) {
-    API::delete_user($_GET["username"]);
+    Api::delete_user($_GET["username"]);
     echo '<h3 style="text-align: center; color: green">User deleted!</h3>';
   }
   back();

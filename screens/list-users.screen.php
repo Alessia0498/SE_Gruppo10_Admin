@@ -15,8 +15,8 @@
   require_once '../common/library.php';
   include '../services/api.service.php';
 
-  generateHeader();
-  $response = API::list_users();
+  generate_header();
+  $response = Api::list_users();
   $response = json_decode($response, true);
   ?>
 
@@ -37,17 +37,18 @@
         </tr>
       </thead>";
 
-      foreach ($response['rows'] as $_ => $data) {
-        echo "
+      if ($response && $response['rows']) {
+        foreach ($response['rows'] as $_ => $user) {
+          echo "
         <tbody>
-          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-user.screen.php?username=" . $data['username'] . "'\">
-            <td width='35%' height='100%' align='center'>" . $data['username'] . "</td>
-            <td width='35%' height='100%' align='center'>" . $data['role'] . "</td>  
+          <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-user.screen.php?username=" . $user['username'] . "'\">
+            <td width='35%' height='100%' align='center'>" . $user['username'] . "</td>
+            <td width='35%' height='100%' align='center'>" . $user['role'] . "</td>  
           </tr>
         </tbody>";
+        }
       }
       echo "</table>";
-
       ?>
     </div>
   </div>

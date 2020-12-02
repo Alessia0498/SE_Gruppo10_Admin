@@ -15,7 +15,7 @@
 	require_once '../common/library.php';
 	include '../services/api.service.php';
 
-	generateHeader();
+	generate_header();
 	session_start();
 	if (isset($_GET['error'])) {
 		$message = "Passwords don't match.Try again!";

@@ -15,10 +15,10 @@
 
   require_once '../common/library.php';
   include "../api.service.php";
-  generateHeader();
+  generate_header();
   session_start();
 
-  $response = API::get_user($_GET['username']);
+  $response = Api::get_user($_GET['username']);
   $data = json_decode($response, true);
   ?>
 
