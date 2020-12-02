@@ -39,7 +39,7 @@ class Api
 
   static private function request($method, $url, $data = false)
   {
-    return self::call_api($method, self::$base_url . $url, $data);
+    return self::call_api($method, self::$base_url . "/" . $url, $data);
   }
 
   static private function get($url, $data = false)
