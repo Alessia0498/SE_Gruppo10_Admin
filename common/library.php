@@ -13,7 +13,7 @@ function generateHeader()
 	  <a href=\"javascript:void(0)\" class=\"closebtn\" onclick=\"closeNav()\"> &times;</a>
 	  
 	  <div id=\"list\">
-	    <a href=\"screens/list-users.screen.php\">Users</a>
+	    <a href=\"list-users.screen.php\">Users</a>
 	  </div>
 	</div> ";
 
