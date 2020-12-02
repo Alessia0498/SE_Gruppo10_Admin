@@ -17,7 +17,7 @@
 
   generateHeader();
   if (isset($_GET['delete']) && isset($_GET['username'])) {
-    CallAPI("DELETE", "http://arma-se.ddns.net/user/" . $_GET["username"]);
+    API::delete_user($_GET["username"]);
     echo '<h3 style="text-align: center; color: green">User deleted!</h3>';
   }
   back();

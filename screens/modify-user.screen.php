@@ -18,7 +18,7 @@
   generateHeader();
   session_start();
 
-  $response = CallAPI("GET", "http://arma-se.ddns.net/user/" . $_GET['username']);
+  $response = API::get_user($_GET['username']);
   $data = json_decode($response, true);
   ?>
 
