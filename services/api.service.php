@@ -54,7 +54,7 @@ class Api
 
   static private function put($url, $data = false)
   {
-    return self::request("PUT", $url, $data
+    return self::request("PUT", $url, $data);
   }
 
   static private function delete($url, $data = false)
