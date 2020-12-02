@@ -96,7 +96,6 @@
       echo "<p style='text-align:center'>Role: " . $data['role'] . "</p>";
     }
   }
-
   back();
 
   ?>

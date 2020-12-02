@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Echoes the header on screen
+ */
 function generate_header()
 {
   echo "
@@ -30,6 +34,9 @@ function generate_header()
 	</script> ";
 }
 
+/**
+ * Echoes the back button on screen
+ */
 function back()
 {
   echo "
@@ -38,7 +45,13 @@ function back()
   </div>";
 }
 
-function go_to_page($indirizzo = "")
+/**
+ * Redirects to the page with given address
+ *
+ * @param string $address
+ * The address to redirect to
+ */
+function go_to_page($address = "")
 {
-  echo   '<script language="javascript">self.location="' . $indirizzo . '"</script>';
+  echo   '<script language="javascript">self.location="' . $address . '"</script>';
 }
