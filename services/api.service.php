@@ -39,7 +39,7 @@ class Api
 
   static private function request($method, $url, $data = false)
   {
-    return self::call_api($method, self::$base_url . "/" . $url, $data);
+    return self::call_api($method, self::$base_url . $url, $data);
   }
 
   static private function get($url, $data = false)
@@ -54,7 +54,7 @@ class Api
 
   static private function put($url, $data = false)
   {
-    return self::request("PUT", $url, $data);
+    return self::request("PUT", $url, $data
   }
 
   static private function delete($url, $data = false)
@@ -86,7 +86,7 @@ class Api
    */
   static public function get_user($username)
   {
-    return self::get("/user" . $username);
+    return self::get("/user/" . $username);
   }
 
   /**
@@ -116,7 +116,7 @@ class Api
    */
   static public function put_user($username, $user)
   {
-    return self::put("/user" . $username, $user);
+    return self::put("/user/" . $username, $user);
   }
 
   /**
@@ -130,7 +130,7 @@ class Api
    */
   static public function delete_user($username)
   {
-    return self::delete("/user" . $username);
+    return self::delete("/user/" . $username);
   }
 }
 ?>
