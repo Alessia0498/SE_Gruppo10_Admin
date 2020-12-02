@@ -63,8 +63,8 @@
 }
 
 .sidenav .closebtn {
-  right: 25px;
-  display: unset;
+float: right;
+width:30px;
 }
 
 .footer2 {
