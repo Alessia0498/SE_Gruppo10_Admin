@@ -4,7 +4,7 @@ function generateHeader()
   echo "
   <div id=\"header\" class=\"topnav\">
     <a class=\"lineeMenu\" onclick=\"openNav()\" href=\"#home\">☰ User List</a>
-    <img class=\"image\" src=\"assets\user.png\">
+    <img class=\"image\" src=\"..\assets\user.png\">
 	</div>";
 
 
@@ -34,7 +34,7 @@ function back()
 {
   echo "
   <div class=\"footer2\" >
-    <a class=\"tableLink\" href=\"screens/list-users.screen.php\" data-role=\"button\">Back</a>
+    <a class=\"tableLink\" href=\"list-users.screen.php\" data-role=\"button\">Back</a>
   </div>";
 }
 
