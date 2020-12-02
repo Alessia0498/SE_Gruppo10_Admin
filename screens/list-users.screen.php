@@ -16,7 +16,7 @@
   include '../services/api.service.php';
 
   generateHeader();
-  $response = CallAPI("GET", "http://arma-se.ddns.net/users");
+  $response = API::list_users();
   $response = json_decode($response, true);
   ?>
 

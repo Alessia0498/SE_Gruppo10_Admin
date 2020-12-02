@@ -21,7 +21,7 @@
 
   <?php
   if (isset($_GET['username']) && !isset($_POST['save'])) {
-    $response = CallApi("GET", "http://arma-se.ddns.net/user/" . $_GET['username']);
+    $response = API::get_user($_GET['username']);
     $data = json_decode($response, true);
 
   ?>
@@ -49,7 +49,7 @@
   if (isset($_POST['registered'])) {
     if ($_POST['password'] == $_POST['repassword']) {
       $new = array('username' => $_POST['username'], 'role' => $_POST['role'], 'password' => $_POST['password'],);
-      $response = CallAPI("POST", "http://arma-se.ddns.net/user", $new);
+      $response = API::post_user($new);
       $data = json_decode($response, true);
 
       if (isset($data["message"])) {
@@ -71,7 +71,7 @@
   if (isset($_GET['modify']) && isset($_POST['save']) && isset($_GET['username'])) {
 
     $new = array('username' => $_POST['username'], 'role' => $_POST['role']);
-    $response = CallAPI("PUT", "http://arma-se.ddns.net/user/" . $_GET["username"], $new);
+    $response = API::put_user($_GET["username"], $new);
     $data = json_decode($response, true);
 
     if (isset($data["message"])) {
