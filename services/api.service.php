@@ -86,7 +86,7 @@ class Api
    */
   static public function get_user($username)
   {
-    return self::get("/user/" . $username);
+    return self::get("/user" . "/" . $username);
   }
 
   /**
@@ -116,7 +116,7 @@ class Api
    */
   static public function put_user($username, $user)
   {
-    return self::put("/user/" . $username, $user);
+    return self::put("/user" . "/" . $username, $user);
   }
 
   /**
@@ -130,7 +130,7 @@ class Api
    */
   static public function delete_user($username)
   {
-    return self::delete("/user/" . $username);
+    return self::delete("/user" . "/" . $username);
   }
 }
 ?>
