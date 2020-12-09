@@ -76,6 +76,17 @@ class Api
   }
 
   /**
+   * Retrieves the list of maintenance activities from the database
+   *
+   * @return string|bool
+   * The result on success, false on failure.
+   */
+  static public function list_maintenance_activity()
+  {
+    return self::get("/maintenance");
+  }
+
+  /**
    * Retrieves the user with given username from the database
    *
    * @param string $username
