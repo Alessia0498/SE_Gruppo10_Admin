@@ -80,6 +80,20 @@ function back()
   </div>";
 }
 
+
+
+/**
+ * Echoes the back button on screen
+ */
+function back2()
+{
+  echo "
+  <div class=\"footer2\" >
+    <a class=\"tableLink\" href=\"list-maintenance-activity.screen.php\" data-role=\"button\">Back</a>
+  </div>";
+}
+
+
 /**
  * Redirects to the page with given address
  *
