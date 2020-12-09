@@ -28,6 +28,12 @@
 
     <div>
       <?php
+
+      echo "
+      <form method=\"post\" action=\"$_SERVER[PHP_SELF]\" id=\"form\" name=\"form\" enctype=\"multipart/form-data\">
+      <label for=\"week\"> WEEK: <input type=\"text\" style=\"border: 1px solid black; width:10%\" class=\"weeknumber\" required=\"required\" name=\"week\" id=\"week\" placeholder=\"Enter a week [1-52]\" title=\"Enter a week\" />
+      </label></form>";
+
       echo "<table class='table2' border='1'>";
       echo "
       <thead>
@@ -39,10 +45,14 @@
         </tr>
       </thead>";
 
-      if ($response && $response['rows']) {
+
+      if ($response && $response['rows'] && isset($_POST['week'])) {
+
         foreach ($response['rows'] as $_ => $activity) {
-          echo "
-        <tbody>
+          if ($_POST['week'] == $activity['week']) {
+
+
+            echo "  <tbody>
           <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-maintenance-activity.screen.php?activity=" . $activity['id'] . "'\">
             <td width='35%' height='100%' align='center'>" . $activity['id'] . "</td>
             <td width='35%' height='100%' align='center'>" . $activity['area'] . "</td>
@@ -50,6 +60,7 @@
             <td width='35%' height='100%' align='center'>" . $activity['eit'] . "</td>   
           </tr>
         </tbody>";
+          }
         }
       }
       echo "</table>";
