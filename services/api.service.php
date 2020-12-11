@@ -75,6 +75,22 @@ class Api
     return self::get("/users");
   }
 
+  /**
+   * Retrieves the list of users from the database by size
+   *
+   * @param string $current
+   * The current page
+   * 
+   * @param string $page_size
+   * The page size
+   * 
+   * @return string|bool
+   * The result on success, false on failure.
+   */
+  static public function list_users_by_size($current, $page_size)
+  {
+    return self::get("/users" . "?current_page=" . $current . "&page_size=" . $page_size);
+  }
 
 
   /**

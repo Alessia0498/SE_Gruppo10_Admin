@@ -15,6 +15,7 @@
   require_once '../common/library.php';
   include '../services/api.service.php';
 
+
   generate_header();
   $response = Api::list_users();
   $response = json_decode($response, true);
@@ -37,7 +38,7 @@
         </tr>
       </thead>";
 
-      if ($response && $response['rows'] && $response['meta']) {
+      if ($response && $response['rows'] && $response['meta'] && !isset($_GET['current_page']) && !isset($_GET['page_size'])) {
         foreach ($response['rows'] as $_ => $user) {
           echo "
         <tbody>
@@ -58,34 +59,52 @@
           "<p style=\"font-weight: bold;\">     Total page    </p>" . $response['meta']['page_count'] .
           "<p style=\"font-weight: bold;\">     Results for page    </p>" . $response['meta']['page_size'] . "
           ";
+
+        if ($response['meta']['count'] > $response['meta']['page_size']) {
+          $response['meta']['current_page'] += 1;
+
+          echo "<a href=\"$_SERVER[PHP_SELF]/users?current_page=" . $response['meta']['current_page']  . "&page_size=" . $response['meta']['page_size'] . "\">Next page</a>";
+        }
       }
 
+      if (isset($_GET['current_page']) && isset($_GET['page_size'])) {
 
 
 
+        $response = Api::list_users_by_size($_GET['current_page'], $_GET['page_size']);
+        $response = json_decode($response, true);
 
-      if ($response['meta']['count'] > $response['meta']['page_size']) {
-        $response['meta']['current_page'] += 1;
-        echo "<a href=\"list-users.screen.php?current_page=" . $response['meta']['current_page']  . "&page_size=" . $response['meta']['page_size'] . "\">Next page</a>";
-
-        if (isset($_GET['current_page']) && isset($_GET['page_size'])) {
-
-
-
-          $start = $response['meta']['count'] / $response['meta']['page_count'];
-
-
-          for ($i = $response['rows']; $i < $start; $i++) {
-            echo "
+        foreach ($response['rows'] as $_ => $user) {
+          echo "
           <tbody>
             <tr class=\"clickable-row\" onClick=\"javascript:window.location.href='view-user.screen.php?username=" . $user['username'] . "'\">
               <td width='35%' height='100%' align='center'>" . $user['username'] . "</td>
               <td width='35%' height='100%' align='center'>" . $user['role'] . "</td>  
             </tr>
             </tbody>";
-          }
+        }
+        echo "</table>";
+
+
+        echo "
+        <br>
+          <div class=\"meta\"></div>
+           <p style=\"font-weight: bold;\">Total users  </p>" . $response['meta']['count'] .
+          "<p style=\"font-weight: bold;\">     Current page    </p>" . $response['meta']['current_page'] .
+          "<p style=\"font-weight: bold;\">     Total page    </p>" . $response['meta']['page_count'] .
+          "<p style=\"font-weight: bold;\">     Results for page    </p>" . $response['meta']['page_size'] . "
+          ";
+
+        if ($response['meta']['count'] > $response['meta']['page_size'] && $response['meta']['page_count'] != $_GET['current_page']) {
+          $response['meta']['current_page'] += 1;
+          echo "<a href=\"$_SERVER[PHP_SELF]?current_page=" . $response['meta']['current_page']  . "&page_size=" . $response['meta']['page_size'] . "\">Next page</a>";
+          echo "<a href=\"$_SERVER[HTTP_REFERER]\">Prev page</a>";
+        } else {
+
+          echo "<a href=\"$_SERVER[PHP_SELF]\">First Page</a>";
         }
       }
+
       ?>
     </div>
   </div>
