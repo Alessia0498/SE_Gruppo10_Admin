@@ -9,17 +9,7 @@
     <link rel="icon" href="assets/service.jpg" type="image/jpg" />
     <meta charset="utf-8" />
 
-    <script>
-        // Get the modal
-        var modal = document.getElementById('id01');
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
 
 </head>
 
@@ -32,15 +22,12 @@
 
     <h2 style="text-align:center;">Welcome to the maintenance system! Log in to continue! </h2>
 
-    <div style="text-align:center;">
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-    </div>
 
-    <div id="id01" class="modal">
 
-        <form class="modal-content animate" action="<?php echo $_SERVER['PHP_SELF'] ?>" method=" post">
+    <div id="form" class="form">
+
+        <form class="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method=" post">
             <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                 <img src="./assets/avatar.jpg" alt="Avatar" class="avatar">
             </div>
 
@@ -58,7 +45,7 @@
             </div>
 
             <div style="text-align:center;" style="background-color:#f1f1f1">
-                <button type="button" name="cancel" id="cancel" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <button type="reset" name="cancel" id="cancel" class="cancelbtn">Cancel</button>
 
             </div>
         </form>
@@ -81,7 +68,7 @@
 
 
 
-        switch ($response['role']) {
+        switch ($data['role']) {
             case 'maintainer':
                 go_to_page("./screens/list-users.screen.php");
                 break;

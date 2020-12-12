@@ -51,9 +51,9 @@
   <?php
 
     echo "
-        <h2 style='text-align:center'> User Information </h2> 
-        <p style='text-align:center'> Username: " . $data['username'] . "</p>";
-    echo "<p style='text-align:center'> Role: " . $data['role'] . "</p>";
+        <h2 style='text-align:center;'> User Information </h2> 
+        <p style='text-align:center;'> Username: " . $data['username'] . "</p>";
+    echo "<p style='text-align:center;'> Role: " . $data['role'] . "</p>";
   }
 
   if (isset($_POST['registered'])) {

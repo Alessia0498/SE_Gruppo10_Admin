@@ -54,18 +54,27 @@
         echo "
         <br>
           <div class=\"meta\"></div>
-           <p style=\"font-weight: bold;\">Total users  </p>" . $response['meta']['count'] .
-          "<p style=\"font-weight: bold;\">     Current page    </p>" . $response['meta']['current_page'] .
-          "<p style=\"font-weight: bold;\">     Total page    </p>" . $response['meta']['page_count'] .
-          "<p style=\"font-weight: bold;\">     Results for page    </p>" . $response['meta']['page_size'] . "
+           <p class=\"meta\" style=\"font-weight: bold;\">Total users  </p>" . $response['meta']['count'] .
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Current page    </p>" . $response['meta']['current_page'] .
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Total page    </p>" . $response['meta']['page_count'] .
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Results for page    </p>" . $response['meta']['page_size'] . "
           ";
 
         if ($response['meta']['count'] > $response['meta']['page_size']) {
-          $response['meta']['current_page'] += 1;
 
-          echo "<a href=\"$_SERVER[PHP_SELF]/users?current_page=" . $response['meta']['current_page']  . "&page_size=" . $response['meta']['page_size'] . "\">Next page</a>";
+          if ($response['meta']['current_page'] > 1) {
+            echo "<a style=\"color: black;\" href=\"" . $_SERVER['PHP_SELF'] . "?current_page=" . ($response['meta']['current_page']  - 1) . "&page_size=" . $response['meta']['page_size'] . "\">";
+            echo "Prev Page     </a>";
+          }
+          if ($response['meta']['page_count'] > $response['meta']['current_page']) {
+            echo "<a style=\"color: black;\" href=\"" . $_SERVER['PHP_SELF'] . "?current_page=" . ($response['meta']['current_page']  + 1) . "&page_size=" . $response['meta']['page_size'] . "\">";
+            echo "Next Page</a>";
+          }
         }
       }
+
+
+
 
       if (isset($_GET['current_page']) && isset($_GET['page_size'])) {
 
@@ -89,19 +98,23 @@
         echo "
         <br>
           <div class=\"meta\"></div>
-           <p style=\"font-weight: bold;\">Total users  </p>" . $response['meta']['count'] .
-          "<p style=\"font-weight: bold;\">     Current page    </p>" . $response['meta']['current_page'] .
-          "<p style=\"font-weight: bold;\">     Total page    </p>" . $response['meta']['page_count'] .
-          "<p style=\"font-weight: bold;\">     Results for page    </p>" . $response['meta']['page_size'] . "
+           <p class=\"meta\" style=\"font-weight: bold;\">Total users  </p>" . $response['meta']['count'] .
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Current page    </p>" . $response['meta']['current_page'] .
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Total page    </p>" . $response['meta']['page_count'] .
+          "<p class=\"meta\" style=\"font-weight: bold;\">     Results for page    </p>" . $response['meta']['page_size'] . "
           ";
 
-        if ($response['meta']['count'] > $response['meta']['page_size'] && $response['meta']['page_count'] != $_GET['current_page']) {
-          $response['meta']['current_page'] += 1;
-          echo "<a href=\"$_SERVER[PHP_SELF]?current_page=" . $response['meta']['current_page']  . "&page_size=" . $response['meta']['page_size'] . "\">Next page</a>";
-          echo "<a href=\"$_SERVER[HTTP_REFERER]\">Prev page</a>";
-        } else {
 
-          echo "<a href=\"$_SERVER[PHP_SELF]\">First Page</a>";
+        if ($response['meta']['count'] > $response['meta']['page_size']) {
+
+          if ($response['meta']['current_page'] > 1) {
+            echo "<a style=\"color: black;\" href=\"" . $_SERVER['PHP_SELF'] . "?current_page=" . ($response['meta']['current_page']  - 1) . "&page_size=" . $response['meta']['page_size'] . "\">";
+            echo "Prev Page     </a>";
+          }
+          if ($response['meta']['page_count'] > $response['meta']['current_page']) {
+            echo "<a style=\"color: black;\" href=\"" . $_SERVER['PHP_SELF'] . "?current_page=" . ($response['meta']['current_page']  + 1) . "&page_size=" . $response['meta']['page_size'] . "\">";
+            echo "Next Page</a>";
+          }
         }
       }
 
