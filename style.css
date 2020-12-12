@@ -47,8 +47,9 @@ button:hover {
 img.avatar {
   width: 10%;
   border-radius: 50%;
+  background-color: black;
 }
 
 .container {
-  padding: 16px;
+  padding: 15px 150px;
 }

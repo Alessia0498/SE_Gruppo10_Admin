@@ -28,7 +28,7 @@
 
         <form class="form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method=" post">
             <div class="imgcontainer">
-                <img src="./assets/avatar.jpg" alt="Avatar" class="avatar">
+                <img src="./assets/user.png" alt="Avatar" class="avatar">
             </div>
 
             <div class="container">
