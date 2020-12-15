@@ -8,8 +8,7 @@
 
 <body>
   <?php
-  include './common/library.php';
-
+  include_once './common/library.php';
   go_to_page("login.php");
   ?>
 </body>

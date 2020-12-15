@@ -8,7 +8,7 @@ function generate_header()
   echo "
   <div id=\"header\" class=\"topnav\">
     <a class=\"lineeMenu\" onclick=\"openNav()\" href=\"#home\">☰ User List</a>
-    <img class=\"image\" src=\"..\assets\user.png\">
+     <a href=\"../login.php?logout=yes\"><img class=\"image\" src=\"..\assets\user.png\"></a>
 	</div>";
 
 

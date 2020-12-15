@@ -13,12 +13,18 @@
 <body>
   <?php
   require_once '../common/library.php';
-  include '../services/api.service.php';
+  include_once '../services/api.service.php';
 
-
+  session_start();
   generate_header();
+
+
+
   $response = Api::list_users();
   $response = json_decode($response, true);
+  //var_dump($response);
+
+
 
   ?>
 

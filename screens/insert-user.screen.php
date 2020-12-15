@@ -13,7 +13,7 @@
 <body>
 	<?php
 	require_once '../common/library.php';
-	include '../services/api.service.php';
+	include_once '../services/api.service.php';
 
 	generate_header();
 	session_start();
