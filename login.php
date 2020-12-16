@@ -38,15 +38,16 @@
         $user = array('username' => $_POST['username'], 'password' => $_POST['password']);
         $response = Api::login($user);
         $data = json_decode($response, true);
-        //var_dump($data);
+        // var_dump($data);
         //$_SESSION['token'] = $data;
 
 
 
-        if (isset($data["message"])) {
+
+        /*  if (isset($data["message"])) {
             echo "<h3 class='error'>" . $data['message'] . "</h3>";
             exit;
-        }
+        }*/
 
 
 
