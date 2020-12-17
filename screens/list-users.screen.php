@@ -22,7 +22,6 @@
 
   $response = Api::list_users();
   $response = json_decode($response, true);
-  //var_dump($response);
 
 
 

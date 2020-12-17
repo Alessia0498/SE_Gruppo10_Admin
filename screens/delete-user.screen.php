@@ -15,6 +15,7 @@
   require_once '../common/library.php';
   include_once '../services/api.service.php';
 
+  session_start();
   generate_header();
   if (isset($_GET['delete']) && isset($_GET['username'])) {
     Api::delete_user($_GET["username"]);

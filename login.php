@@ -38,34 +38,32 @@
         $user = array('username' => $_POST['username'], 'password' => $_POST['password']);
         $response = Api::login($user);
         $data = json_decode($response, true);
-        // var_dump($data);
-        //$_SESSION['token'] = $data;
 
-
-
-
-        /*  if (isset($data["message"])) {
-            echo "<h3 class='error'>" . $data['message'] . "</h3>";
-            exit;
-        }*/
-
-
-
-        switch ($data['user']['role']) {
-            case 'maintainer':
-                go_to_page("./screens/list-users.screen.php");
-                break;
-            case 'planner':
-                go_to_page("../SE_Gruppo10_Planner/screens/list-maintenance-activity.screen.php");
-                break;
-            case 'admin':
-                go_to_page("./screens/list-users.screen.php");
-                break;
+        if (isset($data["access_token"])) {
+            $_SESSION['token'] = $data["access_token"];
         }
-        // $message = "Incorrect username or password! Try again";
-        // go_to_page("login.php?error=yes");
 
-        //echo '<h3 style="text-align: center; color: red">' . $message . '</h3>';
+
+
+        if ($data && isset($data["message"]) && $data["message"] == "Incorrect password") {
+            $message = "Incorrect username or password! Try again";
+            echo '<h3 style="text-align: center; color: red">' . $message . '</h3>';
+        }
+
+        if ($data && isset($data["user"]) && isset($data["user"]["role"])) {
+            switch ($data['user']['role']) {
+                case 'maintainer':
+                    $message = "You are maintainer and  you are not authorized to continue!";
+                    echo '<h3 style="text-align: center; color: red">' . $message . '</h3>';
+                    break;
+                case 'planner':
+                    go_to_page("../SE_Gruppo10_Planner/screens/list-maintenance-activity.screen.php");
+                    break;
+                case 'admin':
+                    go_to_page("./screens/list-users.screen.php");
+                    break;
+            }
+        }
     }
     ?>
 
